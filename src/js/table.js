@@ -18,20 +18,25 @@ function createTableData(text, tr) {
 }
 
 function Search() {
-    var input, filter, table, tr, td, i, txtValue;
+    var input, filter, table, tr, td, i, textValue;
+    let found = false;
+
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("data");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
+        td = tr[i].getElementsByTagName("td");
+        found = false;
+        for (let j = 0; j < td.length; j++)
+            if (td[j]) {
+                textValue = td[j].textContent || td[j].innerText;
+                if (textValue.toUpperCase().indexOf(filter) > -1 || found) {
+                    tr[i].style.display = "";
+                    found = true;
+                } else {
+                    tr[i].style.display = "none";
+                }
             }
         }
     }
-}

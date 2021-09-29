@@ -1,5 +1,5 @@
 <div class="w3-border w3-border-theme">
-    <button id="BtnAdd" onclick="myFunction('addForm')" class="w3-theme w3-btn w3-block w3">
+    <button id="btnAdd" onclick="myFunction('addForm')" class="w3-theme w3-btn w3-block w3">
         Hinzufügen
     </button>
     <div id="addForm" class="w3-container w3-center w3-padding-24 w3-card" style="display: none">
@@ -8,11 +8,11 @@
             <label class="w3-text-indigo w3-left"><b>ID</b></label>
         </p>
         <p>
-            <input class="w3-input w3-border w3-border-indigo" id="first" type="text">
+            <input class="w3-input w3-border w3-border-indigo" id="idFirstName" type="text">
             <label class="w3-text-indigo w3-left"><b>Vorname</b></label>
         </p>
         <p style="padding-bottom: 15px">
-            <input class="w3-input w3-border w3-border-indigo" id="last" type="text">
+            <input class="w3-input w3-border w3-border-indigo" id="idLastName" type="text">
             <label class="w3-text-indigo w3-left"><b>Nachname</b></label>
         </p>
         <p>
@@ -22,47 +22,31 @@
 </div>
 
 
-<div id="con3" class="w3-col  cont w3-border w3-display-container w3-grey" style="overflow: auto">
-    <p></p>
-    <input id="myInput" class="w3-input w3-border w3-padding" type="text" placeholder="Search..." >
+<div class="w3-container w3-margin-top" style="margin-bottom: 0px;">
+    <input class="w3-input w3-border w3-padding" type="text" placeholder="Suche ..." id="myInput" onkeyup="seachData">
 
-        <table id="tab" class="w3-table w3-striped">
-            <tr>
-                <td>ID</td>
-                <td>Vorname</td>
-                <td>Nachname</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Hanna</td>
-                <td>Dietinger</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Philipp</td>
-                <td>Hebesberger</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Thomas</td>
-                <td>Eder</td>
-            </tr>
-        </table>
-
-
-    <div class="w3-container">
-        <div class="w3-container w3-blue-gray">
-            <h2>Input Form</h2>
-        </div>
-
-
-        <label class="w3-text-dark-gray"><b>Panel Content</b></label>
-        <input id="inputPanel" class="w3-input w3-border w3-light-grey" type="text">
-        <button id="sendpanel" class="w3-btn w3-blue-grey">Create Panel</button>
-
-    </div>
-
+    <table id="data" class="w3-table-all">
+        <tr class="w3-theme">
+            <th style="width:20%;">ID</th>
+            <th style="width:40%;">Vorname</th>
+            <th style="width:40%;">Nachname</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Hanna</td>
+            <td>Dietinger</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Philipp</td>
+            <td>Hebesberger</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Patrick</td>
+            <td>Hebesberger</td>
+        </tr>
+    </table>
 </div>
-
 
 

@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //     alert(JSON.stringify(student));
     // });
 
-    document.getElementById("BtnAdd").addEventListener("click", function () {
+    document.getElementById("btnAdd").addEventListener("click", function () {
         if (document.getElementById("addForm").style.display === "none") {
             document.getElementById("addForm").style.display = "";
         } else {
@@ -128,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     document.getElementById("add").addEventListener("click", function () {
-        let tmpFirstName = document.getElementById("first");
-        let tmpLastName = document.getElementById("last");
+        let tmpFirstName = document.getElementById("idFirstName");
+        let tmpLastName = document.getElementById("idLastName");
         let tmpId = document.getElementById("id");
 
         let data = [tmpId.value, tmpFirstName.value, tmpLastName.value];
@@ -143,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("myInput").addEventListener("keyup", function () {
         Search();
-        let i;
     });
 
 
