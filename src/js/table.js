@@ -1,4 +1,6 @@
-function createTableRow() {
+
+
+function createNewRow() {
     let tmpRow = document.createElement("tr");
 
     document.getElementById("data").appendChild(tmpRow);
@@ -6,7 +8,7 @@ function createTableRow() {
     return tmpRow;
 }
 
-function createTableData(text, tr) {
+function FillTable(text, tr) {
 
     let tmpCol = document.createElement("td");
     let value = document.createTextNode(text);
@@ -18,22 +20,25 @@ function createTableData(text, tr) {
 }
 
 function Search() {
-    var input, filter, table, tr, td, i, textValue;
-    let found = false;
+    let input, filter, table, tr, td, i, textValue;
+    let textFound = false;
 
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
+
     table = document.getElementById("data");
     tr = table.getElementsByTagName("tr");
+
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");
-        found = false;
+        textFound = false;
+
         for (let j = 0; j < td.length; j++)
             if (td[j]) {
                 textValue = td[j].textContent || td[j].innerText;
-                if (textValue.toUpperCase().indexOf(filter) > -1 || found) {
+                if (textValue.toUpperCase().indexOf(filter) > -1 || textFound) {
                     tr[i].style.display = "";
-                    found = true;
+                    textFound = true;
                 } else {
                     tr[i].style.display = "none";
                 }

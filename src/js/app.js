@@ -134,10 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let data = [tmpId.value, tmpFirstName.value, tmpLastName.value];
 
-        let tmpNewRow = createTableRow();
+        let tmpNewRow = createNewRow();
 
         for (text of data) {
-            createTableData(text, tmpNewRow);
+            FillTable(text, tmpNewRow);
         }
     });
 
