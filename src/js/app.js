@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("myInput").addEventListener("keyup", function () {
         Search();
+        let i;
     });
 
 
