@@ -1,24 +1,28 @@
+
+
 <div class="w3-border w3-border-theme">
-    <button id="btnAdd" onclick="myFunction('addForm')" class="w3-theme w3-btn w3-block w3">
+    <button id="btnAdd" class="w3-theme w3-btn w3-block w3">
         Hinzufügen
     </button>
-    <div id="addForm" class="w3-container w3-center w3-padding-24 w3-card" style="display: none">
-        <p>
-            <input class="w3-input w3-border w3-border-indigo" id="id" type="text">
-            <label class="w3-text-indigo w3-left"><b>ID</b></label>
-        </p>
-        <p>
-            <input class="w3-input w3-border w3-border-indigo" id="idFirstName" type="text">
-            <label class="w3-text-indigo w3-left"><b>Vorname</b></label>
-        </p>
-        <p style="padding-bottom: 15px">
-            <input class="w3-input w3-border w3-border-indigo" id="idLastName" type="text">
-            <label class="w3-text-indigo w3-left"><b>Nachname</b></label>
-        </p>
-        <p style="padding-top: 15px">
-            <button id="add" class="w3-btn w3-blue w3-left w3-padding w3-theme" style="padding-bottom: 15px">Hinzufügen</button>
-        </p>
-    </div>
+    <form action="" id="myFormId">
+        <div id="addForm" class="w3-container w3-center w3-padding-24 w3-card" style="display: none">
+            <p>
+                <input class="w3-input w3-border w3-border-indigo" id="id" required min="1" max="1000" type="number">
+                <label class="w3-text-indigo w3-left"><b>ID</b></label>
+            </p>
+            <p>
+                <input class="w3-input w3-border w3-border-indigo" id="idFirstName" required minlength="3" type="text">
+                <label class="w3-text-indigo w3-left"><b>Vorname</b></label>
+            </p>
+            <p style="padding-bottom: 15px">
+                <input class="w3-input w3-border w3-border-indigo" id="idLastName" required type="text">
+                <label class="w3-text-indigo w3-left"><b>Nachname</b></label>
+            </p>
+            <p style="padding-top: 15px">
+                <button type="submit" id="add" class="w3-btn w3-blue w3-left w3-padding w3-theme" style="padding-bottom: 15px">Hinzufügen</button>
+            </p>
+        </div>
+    </form>
 </div>
 
 

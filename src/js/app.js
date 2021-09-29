@@ -71,6 +71,22 @@ function onWindowResize()
    setSidebarState(isSidebarOpen());
 }
 
+function addStudent(){
+    document.getElementById("add").addEventListener("click", function () {
+        let tmpFirstName = document.getElementById("idFirstName");
+        let tmpLastName = document.getElementById("idLastName");
+        let tmpId = document.getElementById("id");
+
+        let data = [tmpId.value, tmpFirstName.value, tmpLastName.value];
+
+        let tmpNewRow = createNewRow();
+
+        for (text of data) {
+            FillTable(text, tmpNewRow);
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
     setSidebarState(false);
@@ -127,24 +143,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    document.getElementById("add").addEventListener("click", function () {
-        let tmpFirstName = document.getElementById("idFirstName");
-        let tmpLastName = document.getElementById("idLastName");
-        let tmpId = document.getElementById("id");
+    // document.getElementById("add").addEventListener("click", function () {
+    //     let tmpFirstName = document.getElementById("idFirstName");
+    //     let tmpLastName = document.getElementById("idLastName");
+    //     let tmpId = document.getElementById("id");
+    //
+    //     let data = [tmpId.value, tmpFirstName.value, tmpLastName.value];
+    //
+    //     let tmpNewRow = createNewRow();
+    //
+    //     for (text of data) {
+    //         FillTable(text, tmpNewRow);
+    //     }
+    // });
 
-        let data = [tmpId.value, tmpFirstName.value, tmpLastName.value];
+    // document.getElementById("myInput").addEventListener("keyup", function () {
+    //     Search();
+    // });
 
-        let tmpNewRow = createNewRow();
-
-        for (text of data) {
-            FillTable(text, tmpNewRow);
-        }
+    document.getElementById("myFormId").addEventListener("submit", function (event) {
+        event.preventDefault();
+        addStudent();
     });
-
-    document.getElementById("myInput").addEventListener("keyup", function () {
-        Search();
-    });
-
-
 
 });
