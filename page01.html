@@ -6,20 +6,33 @@
     </button>
     <form action="" id="myFormId">
         <div id="addForm" class="w3-container w3-center w3-padding-24 w3-card" style="display: none">
-            <p>
+            <p style="padding-bottom: 25px">
                 <input class="w3-input w3-border w3-border-indigo" id="id" required min="1" max="1000" type="number">
                 <label class="w3-text-indigo w3-left"><b>ID</b></label>
             </p>
-            <p>
+            <p style="padding-bottom: 25px">
                 <input class="w3-input w3-border w3-border-indigo" id="idFirstName" required minlength="3" type="text">
                 <label class="w3-text-indigo w3-left"><b>Vorname</b></label>
             </p>
-            <p style="padding-bottom: 15px">
+            <p style="padding-bottom: 25px">
                 <input class="w3-input w3-border w3-border-indigo" id="idLastName" required type="text">
                 <label class="w3-text-indigo w3-left"><b>Nachname</b></label>
             </p>
+            <p style="padding-bottom: 25px">
+                <input class="w3-input w3-border w3-border-indigo" id="idBirthDate" required type="date">
+                <label class="w3-text-indigo w3-left"><b>Geburtsdatum</b></label>
+            </p>
+            <p style="padding-bottom: 25px">
+                <input class="w3-input w3-border w3-border-indigo" id="idPhoneNr" required type="tel">
+                <label class="w3-text-indigo w3-left"><b>Handy-Nr.</b></label>
+            </p>
+            <p style="padding-bottom: 25px">
+                <input class="w3-input w3-border w3-border-indigo" id="idEMail" required type="email">
+                <label class="w3-text-indigo w3-left"><b>E-Mail</b></label>
+            </p>
             <p style="padding-top: 15px">
                 <button type="submit" id="add" class="w3-btn w3-blue w3-left w3-padding w3-theme" style="padding-bottom: 15px">Hinzufügen</button>
+                <button type="button" id="change" class="w3-button w3-circle w3-right w3-theme">+</button>
             </p>
         </div>
     </form>
@@ -31,24 +44,45 @@
 
     <table id="data" class="w3-table-all">
         <tr class="w3-theme">
-            <th style="width:20%;">ID</th>
-            <th style="width:40%;">Vorname</th>
-            <th style="width:40%;">Nachname</th>
+            <th style="width:30%;">ID</th>
+            <th style="width:30%;">Vorname</th>
+            <th style="width:30%;">Nachname</th>
+            <th style="width:5%;"></th>
+            <th style="width:5%;"></th>
         </tr>
-        <tr>
+        <tr class="myRow">
             <td>1</td>
             <td>Hanna</td>
             <td>Dietinger</td>
+            <td>
+                <button class = "w3-btn w3-right w3-theme editBtn"  style=" margin-left: 15px"><i class="fas fa-edit" ></i></button>
+            </td>
+            <td>
+                <button class = "w3-btn w3-right w3-theme deleteBtn" style=" margin-left: 15px"><i class="fas fa-trash-alt"></i></button>
+            </td>
         </tr>
-        <tr>
+
+        <tr class="myRow">
             <td>2</td>
             <td>Philipp</td>
             <td>Hebesberger</td>
+            <td>
+                <button class = "w3-btn w3-right w3-theme editBtn" style=" margin-left: 15px"><i class="fas fa-edit" ></i></button>
+            </td>
+            <td>
+                <button class = "w3-btn w3-right w3-theme deleteBtn" style=" margin-left: 15px"><i class="fas fa-trash-alt"></i></button>
+            </td>
         </tr>
-        <tr>
+        <tr class="myRow">
             <td>3</td>
             <td>Patrick</td>
             <td>Hebesberger</td>
+            <td>
+                <button class = "w3-btn w3-right w3-theme editBtn" style=" margin-left: 15px"><i class="fas fa-edit" ></i></button>
+            </td>
+            <td>
+                <button class = "w3-btn w3-right w3-theme deleteBtn" style=" margin-left: 15px"><i class="fas fa-trash-alt"></i></button>
+            </td>
         </tr>
     </table>
 </div>

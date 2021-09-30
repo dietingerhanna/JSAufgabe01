@@ -1,90 +1,88 @@
-function setSidebarState(isOpen)
-{
-  let tmpSidebar = document.getElementById("sidebar");
-  let tmpSidebarContent = document.getElementById("sidebarContent");
-  let tmpWiths = tmpSidebar.getAttribute("sidebar-width");
+function setSidebarState(isOpen) {
+    let tmpSidebar = document.getElementById("sidebar");
+    let tmpSidebarContent = document.getElementById("sidebarContent");
+    let tmpWiths = tmpSidebar.getAttribute("sidebar-width");
 
-  let tmpWithDict = new Map();
+    let tmpWithDict = new Map();
 
-  for(let tmpWith of tmpWiths.split(" "))
-  {
-    let tmpWithPair = tmpWith.split(":");
+    for (let tmpWith of tmpWiths.split(" ")) {
+        let tmpWithPair = tmpWith.split(":");
 
-    if(tmpWithPair.length > 1)
-    {
-      tmpWithDict.set(new Number(tmpWithPair[0]), tmpWithPair[1]);
+        if (tmpWithPair.length > 1) {
+            tmpWithDict.set(new Number(tmpWithPair[0]), tmpWithPair[1]);
+        }
     }
-  }
 
-  let tmpWith = null;
+    let tmpWith = null;
 
-  let tmpWithSortedDict = new Map([...tmpWithDict].sort());
+    let tmpWithSortedDict = new Map([...tmpWithDict].sort());
 
-  tmpWithSortedDict.forEach(function (value, key) {
-    if(window.innerWidth < key)
-    {
-      tmpWith = value;
+    tmpWithSortedDict.forEach(function (value, key) {
+        if (window.innerWidth < key) {
+            tmpWith = value;
+        }
+    });
+
+    if (tmpWith === null) {
+        tmpWith = "30"
     }
-  });
 
-  if(tmpWith === null)
-  {
-    tmpWith = "30"
-  }
-
-  if(isOpen) {
-    tmpSidebar.style.display = "";
-    tmpSidebar.style.width = tmpWith + "%";
-    tmpSidebarContent.style.marginLeft = tmpWith + "%";
-  }
-  else
-  {
-    tmpSidebar.style.display = "none";
-    tmpSidebar.style.width = "0";
-    tmpSidebarContent.style.marginLeft = "0";
-  }
+    if (isOpen) {
+        tmpSidebar.style.display = "";
+        tmpSidebar.style.width = tmpWith + "%";
+        tmpSidebarContent.style.marginLeft = tmpWith + "%";
+    } else {
+        tmpSidebar.style.display = "none";
+        tmpSidebar.style.width = "0";
+        tmpSidebarContent.style.marginLeft = "0";
+    }
 }
 
 function isSidebarOpen() {
-  return document.getElementById("sidebar").style.display != "none";
+    return document.getElementById("sidebar").style.display != "none";
 }
 
 function setAreaState(area) {
-    for(let tmpEntry of document.getElementsByClassName("bs2-menu"))
-    {
-      document.getElementById(
-          tmpEntry.getAttribute("menu-target")).style.display = "none";
+    for (let tmpEntry of document.getElementsByClassName("bs2-menu")) {
+        document.getElementById(
+            tmpEntry.getAttribute("menu-target")).style.display = "none";
     }
 
     document.getElementById(
         area.getAttribute("menu-target")).style.display = "";
 }
 
-function onWindowResize()
-{
-   let tmpHeader = document.getElementsByTagName("header")[0];
-   let tmpMain = document.getElementsByTagName("main")[0];
-   let tmpFooter = document.getElementsByTagName("footer")[0];
+function onWindowResize() {
+    let tmpHeader = document.getElementsByTagName("header")[0];
+    let tmpMain = document.getElementsByTagName("main")[0];
+    let tmpFooter = document.getElementsByTagName("footer")[0];
 
-   tmpMain.style.height = (window.innerHeight - tmpHeader.offsetHeight - tmpFooter.offsetHeight)  + "px";
+    tmpMain.style.height = (window.innerHeight - tmpHeader.offsetHeight - tmpFooter.offsetHeight) + "px";
 
-   setSidebarState(isSidebarOpen());
+    setSidebarState(isSidebarOpen());
 }
 
-function addStudent(){
-    document.getElementById("add").addEventListener("click", function () {
+function addStudent() {
+    //document.getElementById("add").addEventListener("click", function () {
         let tmpFirstName = document.getElementById("idFirstName");
         let tmpLastName = document.getElementById("idLastName");
         let tmpId = document.getElementById("id");
+        let tmpBirthDate = document.getElementById("idBirthDate");
+        let tmpPhoneNr = document.getElementById("idPhoneNr");
+        let tmpEmail = document.getElementById("idEMail");
+        let tmpEditBtn = document.getElementById("idEditBtn");
+        let tmpDeleteBtn = document.getElementById("idDeleteBtn");
 
-        let data = [tmpId.value, tmpFirstName.value, tmpLastName.value];
+
+        let data = [tmpId.value, tmpFirstName.value, tmpLastName.value, tmpEditBtn, tmpDeleteBtn];
 
         let tmpNewRow = createNewRow();
 
-        for (text of data) {
-            FillTable(text, tmpNewRow);
+        let colCounter = 0;
+        for (let i = 0; i < data.length; i++) {
+            FillTable(data[i], tmpNewRow, i === data.length-1);
         }
-    });
+    //});
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -157,13 +155,17 @@ document.addEventListener("DOMContentLoaded", function () {
     //     }
     // });
 
-    // document.getElementById("myInput").addEventListener("keyup", function () {
-    //     Search();
-    // });
+    document.getElementById("myInput").addEventListener("keyup", function () {
+        Search();
+    });
 
     document.getElementById("myFormId").addEventListener("submit", function (event) {
         event.preventDefault();
         addStudent();
     });
 
+
+    document.getElementById("data").addEventListener('click', deleteRow);
+
+    //document.getElementById("data").addEventListener("click", editRow);
 });

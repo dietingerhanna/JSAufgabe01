@@ -1,5 +1,3 @@
-
-
 function createNewRow() {
     let tmpRow = document.createElement("tr");
 
@@ -8,16 +6,62 @@ function createNewRow() {
     return tmpRow;
 }
 
-function FillTable(text, tr) {
+function FillTable(text, tr, isLastCol) {
 
     let tmpCol = document.createElement("td");
-    let value = document.createTextNode(text);
 
-    tmpCol.appendChild(value);
+    if (text != null) {
+        let value = document.createTextNode(text);
+        tmpCol.appendChild(value);
+    }
+
+    if (text === null) {
+        let btn = document.createElement("button");
+        let btnSym = document.createElement("i");
+        if (!isLastCol) {
+            btn.className = "w3-btn w3-right w3-theme editBtn";
+            btnSym.className = "fas fa-edit";
+        } else if (isLastCol) {
+            btn.className = "w3-btn w3-right w3-theme deleteBtn";
+            btnSym.className = "fas fa-trash-alt";
+        }
+        btn.appendChild(btnSym);
+        tmpCol.appendChild(btn);
+    }
 
     tr.appendChild(tmpCol);
+}
+
+function addTableDataButtonIcon(icon, tr, modelId, callback) {
 
 }
+
+
+function deleteRow() {
+
+     for (let tmpDeleteBtn of document.getElementsByClassName("deleteBtn")) {
+         tmpDeleteBtn.closest("tr").remove();
+
+         //tmpDelete.closest('tr').remove();
+
+
+    }
+
+}
+
+function editRow() {
+
+    let table = document.getElementById("data");
+
+    for (let tmpEditBtn of document.getElementsByClassName("editBtn")) {
+        tmpEditBtn.addEventListener("click", function () {
+            let text = document.getElementsByTagName("td").value = this.innerHTML;
+            console.log(text);
+            this.closest("tr").isContentEditable = true;
+        })
+    }
+}
+
 
 function Search() {
     let input, filter, table, tr, td, i, textValue;
@@ -44,4 +88,5 @@ function Search() {
                 }
             }
         }
-    }
+
+}
